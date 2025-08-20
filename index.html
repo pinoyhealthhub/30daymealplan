@@ -22,7 +22,7 @@
         .bg-light-tan { background-color: #D2B48C; }
         .bg-tan-accent { background-color: #C19A6B; }
         .nav-button.active { background-color: #808000; color: white; }
-        .meal-day-button.active { background-color: #A0522D; color: white; }
+        .meal-day-button.active, .meal-week-button.active { background-color: #A0522D; color: white; }
         .recipe-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -67,13 +67,10 @@
                     colors: ['#6B8E23', '#DAA520', '#CD853F']
                 },
                 mealPlan: [
-                    { day: 'Lunes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Chicken Tinola w/ papaya & malunggay', dinner: 'Inihaw na Tilapia, steamed okra', snacks: '1 saging na saba / Nilagang mani' },
-                    { day: 'Martes', breakfast: 'Oatmeal w/ ½ sliced banana', lunch: 'Leftover Inihaw na Tilapia, mixed vegetable salad', dinner: 'Ginisang Ampalaya w/ tokwa', snacks: '1 hard-boiled egg / 1 mansanas' },
-                    { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ tomatoes, 1 pandesal', lunch: 'Low-sodium Chicken Adobo, steamed kangkong', dinner: 'Sinigang na Hipon w/ labanos', snacks: '½ cup yogurt / Sliced pipino' },
-                    { day: 'Huwebes', breakfast: 'Brown Rice Champorado (sugar-free)', lunch: 'Leftover Chicken Adobo, cucumber salad', dinner: 'Pritong Galunggong, Ensaladang Talong', snacks: '1 dalandan / Roasted sunflower seeds' },
-                    { day: 'Biyernes', breakfast: 'Taho (minimal syrup)', lunch: 'Ginisang Monggo w/ malunggay', dinner: 'Chicken Inasal (grilled), atchara', snacks: '1 slice papaya / 1 slice keso' },
-                    { day: 'Sabado', breakfast: '1 pandesal w/ peanut butter', lunch: 'Leftover Chicken Inasal, green salad', dinner: 'Pesang Isda w/ pechay', snacks: '½ cup papaya / Nilagang mais' },
-                    { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Lumpiang Sariwa (2 pcs)', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: '½ suha / Konting pasas' },
+                    [{ day: 'Lunes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Chicken Tinola w/ papaya & malunggay', dinner: 'Inihaw na Tilapia, steamed okra', snacks: '1 saging na saba / Nilagang mani' }, { day: 'Martes', breakfast: 'Oatmeal w/ ½ sliced banana', lunch: 'Leftover Inihaw na Tilapia, mixed vegetable salad', dinner: 'Ginisang Ampalaya w/ tokwa', snacks: '1 hard-boiled egg / 1 mansanas' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ tomatoes, 1 pandesal', lunch: 'Low-sodium Chicken Adobo, steamed kangkong', dinner: 'Sinigang na Hipon w/ labanos', snacks: '½ cup yogurt / Sliced pipino' }, { day: 'Huwebes', breakfast: 'Brown Rice Champorado (sugar-free)', lunch: 'Leftover Chicken Adobo, cucumber salad', dinner: 'Pritong Galunggong, Ensaladang Talong', snacks: '1 dalandan / Roasted sunflower seeds' }, { day: 'Biyernes', breakfast: 'Taho (minimal syrup)', lunch: 'Ginisang Monggo w/ malunggay', dinner: 'Chicken Inasal (grilled), atchara', snacks: '1 slice papaya / 1 slice keso' }, { day: 'Sabado', breakfast: '1 pandesal w/ peanut butter', lunch: 'Leftover Chicken Inasal, green salad', dinner: 'Pesang Isda w/ pechay', snacks: '½ cup papaya / Nilagang mais' }, { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Lumpiang Sariwa (2 pcs)', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: '½ suha / Konting pasas' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ berries', lunch: 'Leftover Pork Nilaga', dinner: 'Sarciadong Isda', snacks: '1 saging na saba' }, { day: 'Martes', breakfast: 'Scrambled tofu w/ spinach', lunch: 'Laing (light gata), grilled chicken', dinner: 'Beef with Broccoli (low-sodium)', snacks: '1 mansanas' }, { day: 'Miyerkules', breakfast: 'Yogurt w/ chia seeds', lunch: 'Leftover Beef with Broccoli', dinner: 'Sinigang na Baboy (lean pork)', snacks: 'Roasted chickpeas' }, { day: 'Huwebes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Pinakbet (shrimp & tofu)', dinner: 'Chicken Binakol', snacks: '1 peras' }, { day: 'Biyernes', breakfast: '1 pandesal w/ avocado', lunch: 'Leftover Pinakbet', dinner: 'Inihaw na Liempo (lean cut)', snacks: '1 slice keso' }, { day: 'Sabado', breakfast: 'Brown Rice Arroz Caldo', lunch: 'Ginisang Sayote w/ chicken', dinner: 'Rellenong Bangus (baked)', snacks: '10 baby carrots' }, { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Leftover Rellenong Bangus, green salad', dinner: 'Chicken Tinola', snacks: 'Handful of almonds' }],
+                    [{ day: 'Lunes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Chicken Tinola w/ papaya & malunggay', dinner: 'Inihaw na Tilapia, steamed okra', snacks: '1 saging na saba / Nilagang mani' }, { day: 'Martes', breakfast: 'Oatmeal w/ ½ sliced banana', lunch: 'Leftover Inihaw na Tilapia, mixed vegetable salad', dinner: 'Ginisang Ampalaya w/ tokwa', snacks: '1 hard-boiled egg / 1 mansanas' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ tomatoes, 1 pandesal', lunch: 'Low-sodium Chicken Adobo, steamed kangkong', dinner: 'Sinigang na Hipon w/ labanos', snacks: '½ cup yogurt / Sliced pipino' }, { day: 'Huwebes', breakfast: 'Brown Rice Champorado (sugar-free)', lunch: 'Leftover Chicken Adobo, cucumber salad', dinner: 'Pritong Galunggong, Ensaladang Talong', snacks: '1 dalandan / Roasted sunflower seeds' }, { day: 'Biyernes', breakfast: 'Taho (minimal syrup)', lunch: 'Ginisang Monggo w/ malunggay', dinner: 'Chicken Inasal (grilled), atchara', snacks: '1 slice papaya / 1 slice keso' }, { day: 'Sabado', breakfast: '1 pandesal w/ peanut butter', lunch: 'Leftover Chicken Inasal, green salad', dinner: 'Pesang Isda w/ pechay', snacks: '½ cup papaya / Nilagang mais' }, { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Lumpiang Sariwa (2 pcs)', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: '½ suha / Konting pasas' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ berries', lunch: 'Leftover Pork Nilaga', dinner: 'Sarciadong Isda', snacks: '1 saging na saba' }, { day: 'Martes', breakfast: 'Scrambled tofu w/ spinach', lunch: 'Laing (light gata), grilled chicken', dinner: 'Beef with Broccoli (low-sodium)', snacks: '1 mansanas' }, { day: 'Miyerkules', breakfast: 'Yogurt w/ chia seeds', lunch: 'Leftover Beef with Broccoli', dinner: 'Sinigang na Baboy (lean pork)', snacks: 'Roasted chickpeas' }, { day: 'Huwebes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Pinakbet (shrimp & tofu)', dinner: 'Chicken Binakol', snacks: '1 peras' }, { day: 'Biyernes', breakfast: '1 pandesal w/ avocado', lunch: 'Leftover Pinakbet', dinner: 'Inihaw na Liempo (lean cut)', snacks: '1 slice keso' }, { day: 'Sabado', breakfast: 'Brown Rice Arroz Caldo', lunch: 'Ginisang Sayote w/ chicken', dinner: 'Rellenong Bangus (baked)', snacks: '10 baby carrots' }, { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Leftover Rellenong Bangus, green salad', dinner: 'Chicken Tinola', snacks: 'Handful of almonds' }]
                 ],
                 recipes: [
                     { name: 'Ginisang Ampalaya with Tokwa', summary: 'Isang abot-kayang ulam na gumagamit ng ampalaya, na kilala sa kakayahang magpababa ng blood sugar.', details: 'Ingredients: 1 malaking ampalaya, 1 bloke ng tokwa (pinirito), 1 kamatis, 1 sibuyas, 2 butil bawang. Instructions: Igisa ang bawang at sibuyas. Idagdag ang kamatis. Isunod ang piniritong tokwa at ampalaya. Haluin hanggang maluto.' },
@@ -93,13 +90,10 @@
                     colors: ['#228B22', '#4682B4', '#D2691E']
                 },
                 mealPlan: [
-                     { day: 'Lunes', breakfast: 'Oatmeal w/ sliced saging', lunch: 'Pesang Tilapia (walang patis)', dinner: 'Chicken Tinola w/ papaya', snacks: '1 mansanas / Nilagang mani' },
-                    { day: 'Martes', breakfast: 'Scrambled eggs w/ kamatis (walang asin)', lunch: 'Leftover Chicken Tinola', dinner: 'Inihaw na Pusit', snacks: '1 peras / ½ cup yogurt' },
-                    { day: 'Miyerkules', breakfast: 'Pandesal w/ sliced kamatis', lunch: 'Ginataang Kalabasa (light gata)', dinner: 'Adobong Puti (suka at bawang)', snacks: '1 dalandan / Sliced pipino' },
-                    { day: 'Huwebes', breakfast: 'Sinangag w/ kamatis at sibuyas', lunch: 'Leftover Adobong Puti', dinner: 'Sinigang na Bangus sa Bayabas', snacks: '½ cup papaya / Unsalted crackers' },
-                    { day: 'Biyernes', breakfast: 'Fruit smoothie (saging, mangga)', lunch: 'Leftover Sinigang', dinner: 'Grilled Chicken Breast, steamed kangkong', snacks: 'Nilagang mais / 1 hard-boiled egg' },
-                    { day: 'Sabado', breakfast: 'Oatmeal w/ cinnamon', lunch: 'Kinilaw na Galunggong', dinner: 'Chicken & Vegetable Skewers', snacks: '1 hiwa ng pinya / Nilagang kamote' },
-                    { day: 'Linggo', breakfast: 'Scrambled tokwa w/ turmeric', lunch: 'Leftover Chicken Skewers, green salad', dinner: 'Bulanglang (Boiled Veggie Soup)', snacks: '1 saging / ½ cup yogurt' },
+                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ sliced saging', lunch: 'Pesang Tilapia (walang patis)', dinner: 'Chicken Tinola w/ papaya', snacks: '1 mansanas / Nilagang mani' }, { day: 'Martes', breakfast: 'Scrambled eggs w/ kamatis (walang asin)', lunch: 'Leftover Chicken Tinola', dinner: 'Inihaw na Pusit', snacks: '1 peras / ½ cup yogurt' }, { day: 'Miyerkules', breakfast: 'Pandesal w/ sliced kamatis', lunch: 'Ginataang Kalabasa (light gata)', dinner: 'Adobong Puti (suka at bawang)', snacks: '1 dalandan / Sliced pipino' }, { day: 'Huwebes', breakfast: 'Sinangag w/ kamatis at sibuyas', lunch: 'Leftover Adobong Puti', dinner: 'Sinigang na Bangus sa Bayabas', snacks: '½ cup papaya / Unsalted crackers' }, { day: 'Biyernes', breakfast: 'Fruit smoothie (saging, mangga)', lunch: 'Leftover Sinigang', dinner: 'Grilled Chicken Breast, steamed kangkong', snacks: 'Nilagang mais / 1 hard-boiled egg' }, { day: 'Sabado', breakfast: 'Oatmeal w/ cinnamon', lunch: 'Kinilaw na Galunggong', dinner: 'Chicken & Vegetable Skewers', snacks: '1 hiwa ng pinya / Nilagang kamote' }, { day: 'Linggo', breakfast: 'Scrambled tokwa w/ turmeric', lunch: 'Leftover Chicken Skewers, green salad', dinner: 'Bulanglang (Boiled Veggie Soup)', snacks: '1 saging / ½ cup yogurt' }],
+                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ sliced banana', lunch: 'Leftover Bulanglang', dinner: 'Paksiw na Isda', snacks: '1 peras' }, { day: 'Martes', breakfast: 'Pandesal w/ sliced tomato', lunch: 'Chicken Salad (yogurt-based)', dinner: 'Nilagang Baka (lean beef)', snacks: '½ cup pakwan' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ berries', lunch: 'Leftover Nilagang Baka', dinner: 'Steamed Tilapia w/ ginger', snacks: '10 baby carrots' }, { day: 'Huwebes', breakfast: 'Scrambled eggs w/ bell peppers', lunch: 'Ensaladang Pako', dinner: 'Chicken Curry (light gata)', snacks: 'Handful of walnuts' }, { day: 'Biyernes', breakfast: 'Fruit salad', lunch: 'Leftover Chicken Curry', dinner: 'Inihaw na Manok', snacks: '½ cup ubas' }, { day: 'Sabado', breakfast: 'Oatmeal w/ peaches', lunch: 'Lumpiang Sariwa (low-sodium sauce)', dinner: 'Cardillong Isda', snacks: '1 dalandan' }, { day: 'Linggo', breakfast: 'Pandesal w/ avocado', lunch: 'Leftover Cardillong Isda', dinner: 'Adobong Puti', snacks: '½ cup papaya' }],
+                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ sliced saging', lunch: 'Pesang Tilapia (walang patis)', dinner: 'Chicken Tinola w/ papaya', snacks: '1 mansanas / Nilagang mani' }, { day: 'Martes', breakfast: 'Scrambled eggs w/ kamatis (walang asin)', lunch: 'Leftover Chicken Tinola', dinner: 'Inihaw na Pusit', snacks: '1 peras / ½ cup yogurt' }, { day: 'Miyerkules', breakfast: 'Pandesal w/ sliced kamatis', lunch: 'Ginataang Kalabasa (light gata)', dinner: 'Adobong Puti (suka at bawang)', snacks: '1 dalandan / Sliced pipino' }, { day: 'Huwebes', breakfast: 'Sinangag w/ kamatis at sibuyas', lunch: 'Leftover Adobong Puti', dinner: 'Sinigang na Bangus sa Bayabas', snacks: '½ cup papaya / Unsalted crackers' }, { day: 'Biyernes', breakfast: 'Fruit smoothie (saging, mangga)', lunch: 'Leftover Sinigang', dinner: 'Grilled Chicken Breast, steamed kangkong', snacks: 'Nilagang mais / 1 hard-boiled egg' }, { day: 'Sabado', breakfast: 'Oatmeal w/ cinnamon', lunch: 'Kinilaw na Galunggong', dinner: 'Chicken & Vegetable Skewers', snacks: '1 hiwa ng pinya / Nilagang kamote' }, { day: 'Linggo', breakfast: 'Scrambled tokwa w/ turmeric', lunch: 'Leftover Chicken Skewers, green salad', dinner: 'Bulanglang (Boiled Veggie Soup)', snacks: '1 saging / ½ cup yogurt' }],
+                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ sliced banana', lunch: 'Leftover Bulanglang', dinner: 'Paksiw na Isda', snacks: '1 peras' }, { day: 'Martes', breakfast: 'Pandesal w/ sliced tomato', lunch: 'Chicken Salad (yogurt-based)', dinner: 'Nilagang Baka (lean beef)', snacks: '½ cup pakwan' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ berries', lunch: 'Leftover Nilagang Baka', dinner: 'Steamed Tilapia w/ ginger', snacks: '10 baby carrots' }, { day: 'Huwebes', breakfast: 'Scrambled eggs w/ bell peppers', lunch: 'Ensaladang Pako', dinner: 'Chicken Curry (light gata)', snacks: 'Handful of walnuts' }, { day: 'Biyernes', breakfast: 'Fruit salad', lunch: 'Leftover Chicken Curry', dinner: 'Inihaw na Manok', snacks: '½ cup ubas' }, { day: 'Sabado', breakfast: 'Oatmeal w/ peaches', lunch: 'Lumpiang Sariwa (low-sodium sauce)', dinner: 'Cardillong Isda', snacks: '1 dalandan' }, { day: 'Linggo', breakfast: 'Pandesal w/ avocado', lunch: 'Leftover Cardillong Isda', dinner: 'Adobong Puti', snacks: '½ cup papaya' }]
                 ],
                 recipes: [
                     { name: 'Adobong Puti', summary: 'Isang classic na adobo na hindi gumagamit ng toyo, kaya mababa sa sodium. Ang lasa ay mula sa suka at bawang.', details: 'Ingredients: 500g manok, ¾ cup suka, 8 butil bawang, paminta, dahon ng laurel. Instructions: Igisa ang manok. Idagdag ang bawang, suka, at pampalasa. Pakuluan hanggang lumambot at lumapot ang sarsa.' },
@@ -119,13 +113,10 @@
                     colors: ['#90EE90', '#ADD8E6', '#F0E68C']
                 },
                 mealPlan: [
-                    { day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' },
-                    { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' },
-                    { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' },
-                    { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' },
-                    { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' },
-                    { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' },
-                    { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' },
+                    [{ day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' }, { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' }, { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' }, { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' }, { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' }, { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' }, { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' }],
+                    [{ day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' }, { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' }, { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' }, { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' }, { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' }, { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' }, { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' }],
+                    [{ day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' }, { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' }, { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' }, { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' }, { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' }, { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' }, { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' }],
+                    [{ day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' }, { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' }, { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' }, { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' }, { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' }, { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' }, { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' }]
                 ],
                 recipes: [
                     { name: 'Steamed Fish (Pesa-Style)', summary: 'Isang napakasimpleng lutuin na magaan sa bato. Ang pag-steam ay hindi nangangailangan ng mantika.', details: 'Ingredients: 1 katamtamang tilapia, luya, sibuyas, 2 cups tubig, 1 cup repolyo. Instructions: Pakuluan ang luya at sibuyas sa tubig. Idagdag ang isda at pakuluan hanggang maluto. Ilagay ang repolyo sa huli.' },
@@ -145,13 +136,10 @@
                     colors: ['#FF6347', '#BA55D3', '#3CB371']
                 },
                 mealPlan: [
-                    { day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' },
-                    { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' },
-                    { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' },
-                    { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' },
-                    { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' },
-                    { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' },
-                    { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' },
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' }, { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' }, { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' }, { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' }, { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' }, { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' }, { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' }, { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' }, { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' }, { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' }, { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' }, { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' }, { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' }, { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' }, { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' }, { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' }, { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' }, { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' }, { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' }, { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' }, { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' }]
                 ],
                 recipes: [
                     { name: 'Anti-Inflammatory Tinolang Isda', summary: 'Isang sabaw na puno ng natural pain relievers tulad ng luya at luyang dilaw.', details: 'Ingredients: 500g tilapia, 6 cups tubig, 3-inch luya, 1 tsp turmeric powder, sibuyas, tanglad, malunggay. Instructions: Pakuluan ang mga pampalasa sa tubig. Idagdag ang isda at pakuluan. Ilagay ang malunggay sa huli.' },
@@ -171,13 +159,10 @@
                     colors: ['#F0E68C', '#B0C4DE', '#98FB98']
                 },
                 mealPlan: [
-                    { day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' },
-                    { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' },
-                    { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' },
-                    { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' },
-                    { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' },
-                    { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' },
-                    { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' },
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' }, { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' }, { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' }, { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' }, { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' }, { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' }, { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' }, { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' }, { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' }, { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' }, { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' }, { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' }, { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' }, { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' }, { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' }, { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' }],
+                    [{ day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' }, { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' }, { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' }, { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' }, { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' }, { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' }]
                 ],
                 recipes: [
                     { name: 'GERD-Friendly Lugaw', summary: 'Ang pinaka-comfort food na madaling tunawin at magaan sa tiyan.', details: 'Ingredients: 1 cup bigas, 8-10 cups tubig, luya, 300g manok (pinakuluan at hinimay). Instructions: Pagsamahin ang bigas, tubig, at luya. Pakuluan hanggang lumambot at maging creamy. Idagdag ang manok. Iwasan ang bawang, paminta, at calamansi.' },
@@ -192,15 +177,17 @@
 
         const contentContainer = document.getElementById('content-container');
         let chartInstance = null;
+        let currentWeek = 0;
 
         function renderContent(condition) {
             const data = appData[condition];
+            currentWeek = 0; 
             contentContainer.innerHTML = `
                 <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
                     <h2 class="text-3xl font-bold text-olive-green mb-4">${data.title}</h2>
                     <p class="mb-6 text-gray-700">${data.description}</p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                         <div>
                             <h3 class="text-xl font-semibold mb-4 text-center">Balanseng Pinggang Pinoy</h3>
                             <div class="chart-container relative h-64 md:h-80 w-full max-w-sm mx-auto">
@@ -208,11 +195,14 @@
                             </div>
                         </div>
                         <div id="meal-plan-section">
-                            <h3 class="text-xl font-semibold mb-4 text-center">Sample 7-Day Meal Plan</h3>
-                            <div class="flex flex-wrap justify-center gap-1 mb-4">
-                                ${data.mealPlan.map((plan, index) => `<button class="meal-day-button text-xs md:text-sm py-1 px-2 rounded-md bg-tan-accent text-white transition hover:opacity-80 ${index === 0 ? 'active' : ''}" data-day="${index}">${plan.day.substring(0,3)}</button>`).join('')}
+                            <h3 class="text-xl font-semibold mb-4 text-center">30-Day Meal Plan Guide</h3>
+                            <div class="flex justify-center gap-2 mb-4">
+                                ${[1, 2, 3, 4].map((week, index) => `<button class="meal-week-button text-sm font-semibold py-2 px-4 rounded-md bg-tan-accent text-white transition hover:opacity-80 ${index === 0 ? 'active' : ''}" data-week="${index}">Week ${week}</button>`).join('')}
                             </div>
-                            <div id="meal-display" class="bg-warm-beige p-4 rounded-lg text-sm">
+                             <div class="flex flex-wrap justify-center gap-1 mb-4" id="day-buttons-container">
+                                <!-- Day buttons will be injected here -->
+                            </div>
+                            <div id="meal-display" class="bg-warm-beige p-6 rounded-lg text-base shadow-inner">
                                 <!-- Meal details will be injected here -->
                             </div>
                         </div>
@@ -248,8 +238,9 @@
             `;
             
             createChart(data.pinggangPinoy);
-            updateMealDisplay(0, data.mealPlan);
-            addEventListeners(data.mealPlan);
+            renderDayButtons(data.mealPlan[currentWeek]);
+            updateMealDisplay(0, data.mealPlan[currentWeek]);
+            addEventListeners(data);
         }
 
         function createChart(chartData) {
@@ -296,31 +287,53 @@
                 }
             });
         }
+        
+        function renderDayButtons(weekPlan) {
+            const dayButtonsContainer = document.getElementById('day-buttons-container');
+            dayButtonsContainer.innerHTML = weekPlan.map((plan, index) => `<button class="meal-day-button text-xs md:text-sm py-1 px-2 rounded-md bg-tan-accent text-white transition hover:opacity-80 ${index === 0 ? 'active' : ''}" data-day="${index}">${plan.day.substring(0,3)}</button>`).join('');
+        }
 
-        function updateMealDisplay(dayIndex, mealPlan) {
-            const meal = mealPlan[dayIndex];
+        function updateMealDisplay(dayIndex, weekPlan) {
+            const meal = weekPlan[dayIndex];
             const mealDisplay = document.getElementById('meal-display');
             mealDisplay.innerHTML = `
-                <p><strong class="text-olive-green">Almusal:</strong> ${meal.breakfast}</p>
-                <p><strong class="text-olive-green">Tanghalian:</strong> ${meal.lunch}</p>
-                <p><strong class="text-olive-green">Hapunan:</strong> ${meal.dinner}</p>
-                <p><strong class="text-olive-green">Meryenda:</strong> ${meal.snacks}</p>
+                <h4 class="text-lg font-bold text-olive-green mb-2 text-center">${meal.day}</h4>
+                <p><strong class="text-gray-700">Almusal:</strong> ${meal.breakfast}</p>
+                <p><strong class="text-gray-700">Tanghalian:</strong> ${meal.lunch}</p>
+                <p><strong class="text-gray-700">Hapunan:</strong> ${meal.dinner}</p>
+                <p><strong class="text-gray-700">Meryenda:</strong> ${meal.snacks}</p>
             `;
         }
         
-        function addEventListeners(mealPlan) {
+        function addEventListeners(data) {
+            document.querySelectorAll('.meal-week-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    currentWeek = parseInt(e.target.dataset.week);
+                    document.querySelector('.meal-week-button.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    const weekPlan = data.mealPlan[currentWeek];
+                    renderDayButtons(weekPlan);
+                    updateMealDisplay(0, weekPlan);
+                    addDayButtonListeners(weekPlan);
+                });
+            });
+            
+            addDayButtonListeners(data.mealPlan[currentWeek]);
+
+            document.querySelectorAll('.recipe-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('open');
+                });
+            });
+        }
+        
+        function addDayButtonListeners(weekPlan) {
             document.querySelectorAll('.meal-day-button').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const dayIndex = e.target.dataset.day;
                     document.querySelector('.meal-day-button.active').classList.remove('active');
                     e.target.classList.add('active');
-                    updateMealDisplay(dayIndex, mealPlan);
-                });
-            });
-
-            document.querySelectorAll('.recipe-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('open');
+                    updateMealDisplay(dayIndex, weekPlan);
                 });
             });
         }
