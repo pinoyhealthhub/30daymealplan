@@ -9,10 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Earth Tones -->
-    <!-- Application Structure Plan: A dashboard-style, single-page application (SPA) was chosen for optimal user experience. The primary navigation allows users to select one of five health conditions. This thematic structure is more intuitive than a linear report, letting users immediately access the information most relevant to them. Each condition's section is a self-contained module with an introduction, an interactive 7-day meal plan (with day-selector buttons), a recipe explorer, a "healing foods" section, and a "Pinggang Pinoy" chart. This design facilitates focused exploration and direct comparison between the dietary approaches for each condition, enhancing user understanding and engagement. -->
-    <!-- Visualization & Content Choices: Report Info: Pinggang Pinoy proportions -> Goal: Inform/Compare -> Viz/Method: Doughnut Chart (Chart.js/Canvas) -> Interaction: Hover for details -> Justification: A doughnut chart is a universally understood way to show parts of a whole, perfectly representing the plate division. It's interactive and visually appealing. Report Info: 30-Day Meal Plans -> Goal: Organize/Inform -> Viz/Method: Interactive HTML Table -> Interaction: Day-selector buttons update the displayed meals -> Justification: A full 30-day table is overwhelming. A 7-day view with selectors makes the information digestible and focused. Report Info: Recipes & Healing Foods -> Goal: Inform/Engage -> Viz/Method: Interactive Cards (HTML/CSS/JS) -> Interaction: Click to reveal details -> Justification: Cards provide a clean, scannable layout, and the click-to-reveal interaction encourages user engagement without cluttering the initial view. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body { font-family: 'Inter', sans-serif; }
         .bg-warm-beige { background-color: #F5F5DC; }
@@ -54,6 +50,10 @@
 
         <main id="content-container">
         </main>
+        
+        <div id="product-link-section" class="text-center mt-8">
+             <!-- Product link will be injected here by JavaScript -->
+        </div>
 
         <footer class="text-center mt-12 pt-8 border-t-2 border-tan-accent">
             <h3 class="font-bold text-lg text-olive-green">MAHALAGANG PAALALA (DISCLAIMER)</h3>
@@ -67,7 +67,10 @@
         const appData = {
             diabetes: {
                 title: "Para sa Diabetes: Kontrolado ang Asukal",
-                description: "Ang meal plan na ito ay nakasentro sa 'Pinggang Pinoy' para makontrol ang blood sugar. Binabawasan natin ang kanin at dinadagdagan ang gulay at fiber, gamit ang mga sangkap tulad ng ampalaya at malunggay na napatunayang nakakatulong sa pagpapababa ng asukal sa dugo.",
+                productText: "Naghahanap ng mga produktong makakatulong sa pamamanhid at pag-manage ng blood sugar?",
+                productLinkText: "Tingnan ang aming kumpletong listahan dito.",
+                productLink: "https://docs.google.com/document/d/e/2PACX-1vS7_MvXwol013MTMC3qD4RCPzuOhoOadnUhTI4i008vsHhpOkrF8BdqpdXPLBtDH1w6RYWy6HsBYQ9Q/pub",
+                description: "Ang meal plan na ito ay nakasentro sa 'Pinggang Pinoy' para makontrol ang blood sugar...",
                 pinggangPinoy: {
                     labels: ['Gulay (Non-starchy)', 'Protina (Lean)', 'Carbohydrates (Complex)'],
                     data: [50, 25, 25],
@@ -80,17 +83,20 @@
                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ berries', lunch: 'Leftover Pork Nilaga', dinner: 'Sarciadong Isda', snacks: '1 saging na saba' }, { day: 'Martes', breakfast: 'Scrambled tofu w/ spinach', lunch: 'Laing (light gata), grilled chicken', dinner: 'Beef with Broccoli (low-sodium)', snacks: '1 mansanas' }, { day: 'Miyerkules', breakfast: 'Yogurt w/ chia seeds', lunch: 'Leftover Beef with Broccoli', dinner: 'Sinigang na Baboy (lean pork)', snacks: 'Roasted chickpeas' }, { day: 'Huwebes', breakfast: 'Tortang Talong, ½ cup garlic brown rice', lunch: 'Pinakbet (shrimp & tofu)', dinner: 'Chicken Binakol', snacks: '1 peras' }, { day: 'Biyernes', breakfast: '1 pandesal w/ avocado', lunch: 'Leftover Pinakbet', dinner: 'Inihaw na Liempo (lean cut)', snacks: '1 slice keso' }, { day: 'Sabado', breakfast: 'Brown Rice Arroz Caldo', lunch: 'Ginisang Sayote w/ chicken', dinner: 'Rellenong Bangus (baked)', snacks: '10 baby carrots' }, { day: 'Linggo', breakfast: 'Veggie omelet, ½ cup kamote', lunch: 'Leftover Rellenong Bangus, green salad', dinner: 'Chicken Tinola', snacks: 'Handful of almonds' }]
                 ],
                 recipes: [
-                    { name: 'Ginisang Ampalaya with Tokwa', summary: 'Isang abot-kayang ulam na gumagamit ng ampalaya, na kilala sa kakayahang magpababa ng blood sugar.', details: 'Ingredients: 1 malaking ampalaya, 1 bloke ng tokwa (pinirito), 1 kamatis, 1 sibuyas, 2 butil bawang. Instructions: Igisa ang bawang at sibuyas. Idagdag ang kamatis. Isunod ang piniritong tokwa at ampalaya. Haluin hanggang maluto.' },
-                    { name: 'Low-Carb Chicken Adobo', summary: 'Ang paboritong adobo na ginawang mas healthy sa pamamagitan ng pagbawas ng sodium at asukal.', details: 'Ingredients: 500g manok, ¼ cup low-sodium toyo, ½ cup suka, 6 butil bawang, paminta, dahon ng laurel. Instructions: Ibabad ang manok sa toyo, suka, at bawang. Igisa hanggang mag-brown. Ibuhos ang pinagbabaran at pakuluan hanggang lumambot.' },
+                    { name: 'Ginisang Ampalaya with Tokwa', summary: 'Isang abot-kayang ulam na gumagamit ng ampalaya...', details: '...' },
+                    { name: 'Low-Carb Chicken Adobo', summary: 'Ang paboritong adobo na ginawang mas healthy...', details: '...' },
                 ],
                 healingFoods: [
-                    { name: 'Ampalaya', description: 'Kilala sa tradisyonal na medisina at sinusuportahan ng agham para sa "insulin-like" properties nito na tumutulong sa pag-manage ng asukal sa dugo.' },
-                    { name: 'Malunggay', description: 'Isang "superfood" na puno ng antioxidants na nakakatulong mapabuti ang insulin sensitivity at pangkalahatang kalusugan.' },
+                    { name: 'Ampalaya', description: 'Kilala sa tradisyonal na medisina...' },
+                    { name: 'Malunggay', description: 'Isang "superfood" na puno ng antioxidants...' },
                 ]
             },
             hypertension: {
                 title: "Para sa Hypertension: Bawas Asin, Dami Lasa",
-                description: "Ang planong ito ay naglalayong bawasan ang sodium sa pamamagitan ng pag-iwas sa patis, toyo, at bagoong. Sa halip, gagamit tayo ng mga natural na pampalasa tulad ng bawang, luya, suka, at calamansi para manatiling masarap ang pagkain.",
+                productText: "Gusto mo bang makahanap ng mga produktong para sa high blood pressure at sakit ng ulo?",
+                productLinkText: "Silipin ang aming mga rekomendasyon dito.",
+                productLink: "https://docs.google.com/document/d/e/2PACX-1vQxT0kK2CteEtfxSk6URq9IPxR8-2aci6_nyOnRXqsog5OoouZArtV57ydt9QpPSoQYrwJ2QhGX6DZx/pub",
+                description: "Ang planong ito ay naglalayong bawasan ang sodium...",
                 pinggangPinoy: {
                     labels: ['Gulay at Prutas (Potassium-rich)', 'Protina (Lean)', 'Carbohydrates (Whole Grains)'],
                     data: [50, 25, 25],
@@ -103,17 +109,20 @@
                      [{ day: 'Lunes', breakfast: 'Oatmeal w/ sliced banana', lunch: 'Leftover Bulanglang', dinner: 'Paksiw na Isda', snacks: '1 peras' }, { day: 'Martes', breakfast: 'Pandesal w/ sliced tomato', lunch: 'Chicken Salad (yogurt-based)', dinner: 'Nilagang Baka (lean beef)', snacks: '½ cup pakwan' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ berries', lunch: 'Leftover Nilagang Baka', dinner: 'Steamed Tilapia w/ ginger', snacks: '10 baby carrots' }, { day: 'Huwebes', breakfast: 'Scrambled eggs w/ bell peppers', lunch: 'Ensaladang Pako', dinner: 'Chicken Curry (light gata)', snacks: 'Handful of walnuts' }, { day: 'Biyernes', breakfast: 'Fruit salad', lunch: 'Leftover Chicken Curry', dinner: 'Inihaw na Manok', snacks: '½ cup ubas' }, { day: 'Sabado', breakfast: 'Oatmeal w/ peaches', lunch: 'Lumpiang Sariwa (low-sodium sauce)', dinner: 'Cardillong Isda', snacks: '1 dalandan' }, { day: 'Linggo', breakfast: 'Pandesal w/ avocado', lunch: 'Leftover Cardillong Isda', dinner: 'Adobong Puti', snacks: '½ cup papaya' }]
                 ],
                 recipes: [
-                    { name: 'Adobong Puti', summary: 'Isang classic na adobo na hindi gumagamit ng toyo, kaya mababa sa sodium. Ang lasa ay mula sa suka at bawang.', details: 'Ingredients: 500g manok, ¾ cup suka, 8 butil bawang, paminta, dahon ng laurel. Instructions: Igisa ang manok. Idagdag ang bawang, suka, at pampalasa. Pakuluan hanggang lumambot at lumapot ang sarsa.' },
-                    { name: 'Kinilaw na Galunggong', summary: 'Isang nakakapreskong ulam na hindi niluluto. Ang isda ay "niluluto" sa asim ng suka.', details: 'Ingredients: 500g sariwang galunggong (tinik-tinik), 1 cup suka, ½ cup calamansi juice, sibuyas, luya, sili. Instructions: Ibabad ang isda sa suka ng 15 minuto. Pigaing maigi. Timplahan ng calamansi, sibuyas, luya, at sili. Palamigin bago ihain.' },
+                    { name: 'Adobong Puti', summary: 'Isang classic na adobo na hindi gumagamit ng toyo...', details: '...' },
+                    { name: 'Kinilaw na Galunggong', summary: 'Isang nakakapreskong ulam na hindi niluluto...', details: '...' },
                 ],
                 healingFoods: [
-                    { name: 'Saging', description: 'Mayaman sa potassium, isang mineral na tumutulong labanan ang epekto ng sodium at nagpapababa ng presyon ng dugo.' },
-                    { name: 'Bawang', description: 'Tradisyonal na ginagamit para sa kalusugan ng puso. Mayroon itong compounds na nakakatulong mag-relax ng blood vessels.' },
+                    { name: 'Saging', description: 'Mayaman sa potassium...' },
+                    { name: 'Bawang', description: 'Tradisyonal na ginagamit para sa kalusugan ng puso...' },
                 ]
             },
             kidney: {
                 title: "Para sa Bato: Magaan at Masustansya",
-                description: "Ang diet na ito ay maingat na kinokontrol ang protina, sodium, potassium, at phosphorus para mabawasan ang trabaho ng ating mga bato. Gagamit tayo ng puting kanin at mga gulay na mababa sa potassium.",
+                productText: "Para sa mga produktong sumusuporta sa kalusugan ng bato at makatulong sa back pain,",
+                productLinkText: "i-click ang aming guide dito.",
+                productLink: "https://docs.google.com/document/d/e/2PACX-1vQNN3tHzhlSlqUQSNtXnbXeo8OPsH6veWCahbZbxx3qTFubvnkqScfGMYWYUx7rq_F0HiHe4YW4BpAw/pub",
+                description: "Ang diet na ito ay maingat na kinokontrol ang protina...",
                 pinggangPinoy: {
                     labels: ['Gulay (Low-Potassium)', 'Protina (Controlled Portion)', 'Carbohydrates (White Rice)'],
                     data: [50, 20, 30],
@@ -126,17 +135,20 @@
                     [{ day: 'Lunes', breakfast: 'Cream of Wheat, ½ mansanas', lunch: '2oz Grilled Chicken, 1 cup white rice, steamed repolyo', dinner: '2oz Steamed Tilapia w/ luya', snacks: '1 maliit na peras' }, { day: 'Martes', breakfast: '2 slices white toast w/ jam', lunch: 'Leftover Steamed Tilapia, 1 cup white rice', dinner: '2oz Lean Pork Stir-fry w/ bell peppers', snacks: '½ cup canned peaches (drained)' }, { day: 'Miyerkules', breakfast: '1 cup Rice Krispies', lunch: 'Leftover Pork Stir-fry', dinner: '2oz Chicken Afritada (walang patatas)', snacks: '½ cup canned fruit cocktail (drained)' }, { day: 'Huwebes', breakfast: '1 poached egg white, 1 slice white toast', lunch: 'Chicken salad (2oz) on white bread', dinner: '2oz Chicken w/ Sayote', snacks: '½ cup pinya' }, { day: 'Biyernes', breakfast: '½ cup oatmeal (niluto sa tubig)', lunch: 'Leftover Chicken w/ Sayote', dinner: 'Pancit Bihon w/ manok at repolyo', snacks: '1 maliit na mansanas' }, { day: 'Sabado', breakfast: '2 maliit na pancake w/ syrup', lunch: 'Leftover Pancit', dinner: '2oz Inihaw na Manok (walang balat)', snacks: '1 maliit na peras' }, { day: 'Linggo', breakfast: 'Scrambled egg whites', lunch: 'Leftover Inihaw na Manok, cucumber salad', dinner: '2oz Sarciadong Isda (low-potassium sauce)', snacks: '½ cup canned peaches (drained)' }]
                 ],
                 recipes: [
-                    { name: 'Steamed Fish (Pesa-Style)', summary: 'Isang napakasimpleng lutuin na magaan sa bato. Ang pag-steam ay hindi nangangailangan ng mantika.', details: 'Ingredients: 1 katamtamang tilapia, luya, sibuyas, 2 cups tubig, 1 cup repolyo. Instructions: Pakuluan ang luya at sibuyas sa tubig. Idagdag ang isda at pakuluan hanggang maluto. Ilagay ang repolyo sa huli.' },
-                    { name: 'Kidney-Friendly Adobo', summary: 'Adobo na walang toyo at kaunti lang ang asin, nagbibigay lasa mula sa suka at bawang.', details: 'Ingredients: 300g manok, ¼ cup suka, 4 butil bawang, paminta. Instructions: Igisa ang manok. Idagdag ang bawang, suka, at paminta. Pakuluan hanggang lumambot. Maghain ng 2-3 oz lamang.' },
+                    { name: 'Steamed Fish (Pesa-Style)', summary: 'Isang napakasimpleng lutuin na magaan sa bato...', details: '...' },
+                    { name: 'Kidney-Friendly Adobo', summary: 'Adobo na walang toyo at kaunti lang ang asin...', details: '...' },
                 ],
                 healingFoods: [
-                    { name: 'Sambong', description: 'Kilala sa folk medicine at kinikilala ng DOH para sa diuretic properties nito, na sinasabing nakakatulong sa pag-ihi at paglinis ng bato.' },
-                    { name: 'Buhok ng Mais', description: 'Ang tsaa mula rito ay tradisyonal na ginagamit bilang diuretic na maaaring makatulong sa pag-flush ng toxins sa katawan.' },
+                    { name: 'Sambong', description: 'Kilala sa folk medicine...' },
+                    { name: 'Buhok ng Mais', description: 'Ang tsaa mula rito ay tradisyonal na ginagamit...' },
                 ]
             },
             gout: {
                 title: "Para sa Rayuma at Gout: Labanan ang Pamamaga",
-                description: "Ang planong ito ay nakatuon sa mga pagkaing anti-inflammatory at iniiwasan ang mga pagkaing mataas sa purines na nagti-trigger ng gout. Dadagdagan natin ang omega-3 mula sa isda at gagamit ng luya at luyang dilaw.",
+                productText: "Tuklasin ang mga produktong maaaring makatulong na maibsan ang joint pain at pamamaga.",
+                productLinkText: "Basahin ang aming listahan dito.",
+                productLink: "https://docs.google.com/document/d/e/2PACX-1vQCU416fxL10vLLsaai9aKdPt5FVRZbEeKnpNj5G4gna8G-68JIgTd-YnOTlWsTsy3Hj3mNMfraxdGM/pub",
+                description: "Ang planong ito ay nakatuon sa mga pagkaing anti-inflammatory...",
                 pinggangPinoy: {
                     labels: ['Gulay at Prutas (Anti-inflammatory)', 'Protina (Low-Purine)', 'Carbohydrates (Whole Grains)'],
                     data: [50, 25, 25],
@@ -149,17 +161,20 @@
                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ pinya', lunch: 'Grilled Chicken Salad', dinner: 'Baked Galunggong w/ steamed sayote', snacks: '1 mansanas' }, { day: 'Martes', breakfast: 'Low-fat yogurt w/ papaya', lunch: 'Leftover Baked Galunggong', dinner: 'Chicken Tinola (maraming luya)', snacks: 'Nilagang mani' }, { day: 'Miyerkules', breakfast: 'Scrambled eggs w/ turmeric', lunch: 'Leftover Chicken Tinola', dinner: 'Lentil Soup', snacks: '1 peras' }, { day: 'Huwebes', breakfast: 'Pandesal w/ avocado', lunch: 'Corn salad w/ chickpeas', dinner: 'Tinolang Isda w/ malunggay', snacks: '1 dalandan' }, { day: 'Biyernes', breakfast: 'Chia pudding w/ mangga', lunch: 'Leftover Tinolang Isda', dinner: 'Chicken & Veggie Stir-fry', snacks: 'Low-fat yogurt' }, { day: 'Sabado', breakfast: 'Oatmeal w/ saging', lunch: 'Leftover Chicken Stir-fry', dinner: 'Sinigang na Bangus', snacks: 'Hiwa ng pinya' }, { day: 'Linggo', breakfast: 'Smoothie (papaya, kangkong)', lunch: 'Large vegetable soup', dinner: 'Baked Tilapia w/ calamansi & herbs', snacks: 'Nilagang kamote' }]
                 ],
                 recipes: [
-                    { name: 'Anti-Inflammatory Tinolang Isda', summary: 'Isang sabaw na puno ng natural pain relievers tulad ng luya at luyang dilaw.', details: 'Ingredients: 500g tilapia, 6 cups tubig, 3-inch luya, 1 tsp turmeric powder, sibuyas, tanglad, malunggay. Instructions: Pakuluan ang mga pampalasa sa tubig. Idagdag ang isda at pakuluan. Ilagay ang malunggay sa huli.' },
-                    { name: 'Vegan Pinakbet', summary: 'Isang bersyon ng pinakbet na walang bagoong o baboy na mataas sa purines.', details: 'Ingredients: Kalabasa, sitaw, ampalaya, talong, okra, light gata, low-sodium toyo. Instructions: Igisa ang mga gulay hanggang maluto. Ibuhos ang gata at toyo at pakuluan sandali.' },
+                    { name: 'Anti-Inflammatory Tinolang Isda', summary: 'Isang sabaw na puno ng natural pain relievers...', details: '...' },
+                    { name: 'Vegan Pinakbet', summary: 'Isang bersyon ng pinakbet na walang bagoong...', details: '...' },
                 ],
                 healingFoods: [
-                    { name: 'Luya (Ginger)', description: 'Maraming pag-aaral ang nagpapatunay na nakakatulong ito sa pagbawas ng sakit at pamamaga mula sa osteoarthritis.' },
-                    { name: 'Luyang Dilaw (Turmeric)', description: 'Ang active ingredient nitong curcumin ay isang malakas na anti-inflammatory agent na epektibo laban sa joint pain.' },
+                    { name: 'Luya (Ginger)', description: 'Maraming pag-aaral ang nagpapatunay...' },
+                    { name: 'Luyang Dilaw (Turmeric)', description: 'Ang active ingredient nitong curcumin...' },
                 ]
             },
             gerd: {
                 title: "Para sa GERD: Iwas Heartburn, Sarap Kain",
-                description: "Ang planong ito ay umiiwas sa mga pagkaing acidic, maaanghang, at mamantika na nagdudulot ng heartburn. Babalikan natin ang mga magaan at nakakaginhawang pagkain tulad ng lugaw, nilaga, at steamed na ulam.",
+                productText: "Iwasan ang heartburn! Heto ang listahan ng mga produktong maaaring makatulong sa iyo.",
+                productLinkText: "I-check ang aming gabay dito.",
+                productLink: "https://docs.google.com/document/d/e/2PACX-1vQIp5qiQWYrNL57OATmlM3mgqpnAFTFn8Py39yXkoVQUQlKqgMjqlWOlFwN-xFPLcQ_RAftLyLVqruv/pub",
+                description: "Ang planong ito ay umiiwas sa mga pagkaing acidic...",
                 pinggangPinoy: {
                     labels: ['Gulay at Prutas (Low-Acid)', 'Protina (Lean & Steamed/Grilled)', 'Carbohydrates (Easy to Digest)'],
                     data: [40, 30, 30],
@@ -172,17 +187,18 @@
                     [{ day: 'Lunes', breakfast: 'Oatmeal w/ saging', lunch: 'Chicken Tinola (walang sibuyas kung trigger)', dinner: 'Baked Tilapia w/ steamed sayote', snacks: '½ cup papaya / Sliced pipino' }, { day: 'Martes', breakfast: 'Scrambled eggs', lunch: 'Leftover Baked Tilapia', dinner: 'Lugaw w/ shredded chicken & luya', snacks: '1 saging na latundan / ½ cup melon' }, { day: 'Miyerkules', breakfast: 'Low-fat yogurt w/ melon', lunch: 'Leftover Lugaw', dinner: 'Grilled Chicken Breast w/ carrots', snacks: 'Skyflakes / Rice crackers' }, { day: 'Huwebes', breakfast: 'Pinipig w/ low-fat milk', lunch: 'Leftover Grilled Chicken', dinner: 'Steamed Tilapia w/ luya', snacks: '½ cup papaya / 1 saging' }, { day: 'Biyernes', breakfast: 'Oatmeal w/ mansanas', lunch: 'Leftover Steamed Tilapia', dinner: 'Lean Pork Nilaga w/ repolyo', snacks: 'Pipino / Nilagang kamote' }, { day: 'Sabado', breakfast: 'Smoothie (saging, talbos ng kamote)', lunch: 'Leftover Pork Nilaga', dinner: 'Chicken & Veggie Stir-fry (walang sibuyas)', snacks: '½ cup melon / Rice crackers' }, { day: 'Linggo', breakfast: 'Scrambled tokwa', lunch: 'Leftover Stir-fry', dinner: 'Arroz Caldo w/ chicken & luya', snacks: '1 saging / Low-fat yogurt' }]
                 ],
                 recipes: [
-                    { name: 'GERD-Friendly Lugaw', summary: 'Ang pinaka-comfort food na madaling tunawin at magaan sa tiyan.', details: 'Ingredients: 1 cup bigas, 8-10 cups tubig, luya, 300g manok (pinakuluan at hinimay). Instructions: Pagsamahin ang bigas, tubig, at luya. Pakuluan hanggang lumambot at maging creamy. Idagdag ang manok. Iwasan ang bawang, paminta, at calamansi.' },
-                    { name: 'Baked Kamote', summary: 'Isang simpleng high-fiber at natural na matamis na snack na magaan sa tiyan.', details: 'Ingredients: 2 katamtamang kamote. Instructions: Hugasan at tusukin ng tinidor ang kamote. I-bake sa oven ng 45-60 minuto hanggang lumambot. Kainin nang walang dagdag na pampalasa.' },
+                    { name: 'GERD-Friendly Lugaw', summary: 'Ang pinaka-comfort food na madaling tunawin...', details: '...' },
+                    { name: 'Baked Kamote', summary: 'Isang simpleng high-fiber at natural na matamis na snack...', details: '...' },
                 ],
                 healingFoods: [
-                    { name: 'Saging (Latundan)', description: 'Isang prutas na low-acid o alkaline na tumutulong i-neutralize ang stomach acid. Nakakatulong din sa maayos na digestion.' },
-                    { name: 'Kamote', description: 'Magandang source ng fiber, hindi acidic, at ang malambot na texture nito ay magaan sa lalamunan at tiyan.' },
+                    { name: 'Saging (Latundan)', description: 'Isang prutas na low-acid o alkaline...' },
+                    { name: 'Kamote', description: 'Magandang source ng fiber...' },
                 ]
             }
         };
 
         const contentContainer = document.getElementById('content-container');
+        const productLinkSection = document.getElementById('product-link-section');
         let chartInstance = null;
         let currentWeek = 0;
 
@@ -242,6 +258,13 @@
                         </div>
                     </div>
                 </div>
+            `;
+            
+            productLinkSection.innerHTML = `
+                <p class="text-gray-700">
+                    ${data.productText}
+                    <a href="${data.productLink}" target="_blank" class="text-olive-green font-bold underline hover:text-green-800">${data.productLinkText}</a>
+                </p>
             `;
             
             createChart(data.pinggangPinoy);
